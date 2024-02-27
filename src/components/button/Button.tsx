@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import { Text } from 'components/text';
 import styles from './Button.module.scss';
-import { SyntheticEvent } from 'react';
 
 export const Button = ({
 	title,
@@ -9,22 +8,15 @@ export const Button = ({
 	type,
 }: {
 	title: string;
-	onClick?: (e: SyntheticEvent) => void;
+	onClick?: () => void;
 	type?: React.ButtonHTMLAttributes<HTMLButtonElement>['type'];
 }) => {
-	const getButtonColor = () => {
-		if (type === 'submit') {
-			return styles.submit;
-		}
-		if (type === 'reset') {
-			return styles.reset;
-		}
-		return '';
-	};
-
 	return (
 		<button
-			className={clsx(styles.button, getButtonColor())}
+			className={clsx(styles.button, {
+				[styles.submit]: type === 'submit',
+				[styles.reset]: type === 'reset',
+			})}
 			type={type}
 			onClick={onClick}>
 			<Text weight={800} uppercase>
