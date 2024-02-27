@@ -14,6 +14,23 @@
 	background: var(--gold, #ffc802);
 }
 
+.submit {
+	background: #ffc802;
+}
+
+.reset {
+	background: #ffffff;
+}
+
 .button:hover {
 	background: var(--gold, #ffc802);
+}
+
+.submit:hover {
+	background: #ffedab;
+}
+
+.reset:hover {
+	color: #ffffff;
+	background: #000000;
 }
